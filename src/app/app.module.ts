@@ -18,7 +18,6 @@ import {
 
 import { AppComponent } from './app.component';
 import { JugadorComponent } from './jugador/jugador.component';
-import { JugadorDetailComponent } from './jugador-detail/jugador-detail.component';
 import { JugadorCreateComponent } from './jugador-create/jugador-create.component';
 import { JugadorEditComponent } from './jugador-edit/jugador-edit.component';
 
@@ -27,11 +26,6 @@ const appRoutes: Routes = [
     path: 'jugadores',
     component: JugadorComponent,
     data: { title: 'Jugador Lista' }
-  },
-  {
-    path: 'jugador-details/:id',
-    component: JugadorDetailComponent,
-    data: { title: 'Jugador Detalles' }
   },
   {
     path: 'jugador-create',
@@ -54,7 +48,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     JugadorComponent,
-    JugadorDetailComponent,
     JugadorCreateComponent,
     JugadorEditComponent
   ],
