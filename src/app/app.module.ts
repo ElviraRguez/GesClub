@@ -12,6 +12,8 @@ import {
   MatTableModule,
   MatIconModule,
   MatButtonModule,
+  MatSelectModule,
+  MatDatepickerModule,
   MatCardModule,
   MatFormFieldModule
 } from '@angular/material';
@@ -65,6 +67,8 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
     MatIconModule,
     MatButtonModule,
+    MatSelectModule,
+    MatDatepickerModule,
     MatCardModule,
     MatFormFieldModule
   ],

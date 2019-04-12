@@ -1,3 +1,49 @@
-<p>
-  jugador-create works!
-</p>
+<div class="container">
+  <a mat-raised-button color="primary" [routerLink]="['/jugadores']">
+    <mat-icon>arrow_back</mat-icon>
+  </a>
+  
+  <div class="content">
+    <form [formGroup]="jugadorForm" (ngSubmit)="onFormSubmit(jugadorForm.value)">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="DNI" formControlName="dni" [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!jugadorForm.get('dni').valid && jugadorForm.get('dni').touched">Por favor, introduzca el DNI del
+            jugador.</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombre" formControlName="nombre" [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!jugadorForm.get('nombre').valid && jugadorForm.get('nombre').touched">Por favor, introduzca el
+            nombre del jugador.</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Apellidos" formControlName="apellidos" [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!jugadorForm.get('apellidos').valid && jugadorForm.get('apellidos').touched">Por favor,
+            introduzca los apellidos del jugador.</span>
+        </mat-error>
+      </mat-form-field>
+      <!--
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" formControlName="fechaNacimiento">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    -->
+      <mat-form-field> 
+        <mat-label>Pais</mat-label>
+        <mat-select formControlName="pais">
+          <mat-option selected> ESP </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" [disabled]="!jugadorForm.valid" mat-raised-button color="primary">
+          <mat-icon>save</mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
