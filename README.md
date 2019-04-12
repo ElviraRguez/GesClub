@@ -38,3 +38,4 @@ Crear primer usuario por consola: `curl -i -X POST -H "Content-Type: application
 ## Angular Material
 
 Ayuda para el uso de los [componentes de angular material](https://material.angular.io/components/table/examples).
+[List cards](https://blog.angularindepth.com/angular-flex-layout-flexbox-and-grid-layout-for-angular-component-6e7c24457b63).

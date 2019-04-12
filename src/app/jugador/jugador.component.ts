@@ -1,19 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
-
-export class JugadorDataSource extends DataSource<any> {
-  constructor(private api: ApiService) {
-    super();
-  }
-
-  connect() {
-    return this.api.getJugadores();
-  }
-
-  disconnect() { }
-}
 
 @Component({
   selector: 'app-jugador',
@@ -23,8 +10,6 @@ export class JugadorDataSource extends DataSource<any> {
 export class JugadorComponent implements OnInit {
 
   jugadores: any;
-  displayedColumns = ['dni', 'nombre', 'apellidos'];
-  dataSource = new JugadorDataSource(this.api);
 
   constructor(private api: ApiService) { }
 
@@ -36,5 +21,9 @@ export class JugadorComponent implements OnInit {
       }, err => {
         console.log(err);
       });
+  }
+
+  deleteJugador(id) {
+
   }
 }
