@@ -1,3 +1,29 @@
-<p>
-  jugador-detail works!
-</p>
+<div class="container">
+  <a mat-raised-button color="primary" [routerLink]="['/jugadores']">
+    <mat-icon>arrow_back</mat-icon>
+  </a>
+
+  <div class="content">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h3>{{jugador.nombre}} {{jugador.apellidos}}</h3>
+        </mat-card-title>
+        <mat-card-subtitle>{{jugador.dni}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Fecha de Nacimiento: {{jugador.fechaNacimiento | date}}</p>
+        <p>Edad: {{jugador.edad}}</p>
+        <p>Pais:{{jugador.pais}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-raised-button color="primary" [routerLink]="['/juagador-edit', jugador._id]">
+          <mat-icon>edit</mat-icon>
+        </a>
+        <a mat-raised-button color="warn" (click)="deleteJugador(jugador._id)">
+          <mat-icon>delete</mat-icon>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
