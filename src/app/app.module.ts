@@ -1,14 +1,79 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms/';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatInputModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+  MatTableModule,
+  MatIconModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule
+} from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { JugadorComponent } from './jugador/jugador.component';
+import { JugadorDetailComponent } from './jugador-detail/jugador-detail.component';
+import { JugadorCreateComponent } from './jugador-create/jugador-create.component';
+import { JugadorEditComponent } from './jugador-edit/jugador-edit.component';
+
+const appRoutes: Routes = [
+  {
+    path: 'jugadores',
+    component: JugadorComponent,
+    data: { title: 'Jugador Lista' }
+  },
+  {
+    path: 'jugador-details/:id',
+    component: JugadorDetailComponent,
+    data: { title: 'Jugador Detalles' }
+  },
+  {
+    path: 'jugador-create',
+    component: JugadorCreateComponent,
+    data: { title: 'Crear Jugador' }
+  },
+  {
+    path: 'jugador-edit/:id',
+    component: JugadorEditComponent,
+    data: { title: 'Editar Jugador' }
+  },
+  {
+    path: '',
+    redirectTo: '/jugadores',
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JugadorComponent,
+    JugadorDetailComponent,
+    JugadorCreateComponent,
+    JugadorEditComponent
   ],
   imports: [
-    BrowserModule
+    RouterModule.forRoot(appRoutes),
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

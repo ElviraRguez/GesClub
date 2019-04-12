@@ -1,0 +1,25 @@
+<div class="container">
+  <a mat-raised-button color="primary" [routerLink]="['/jugador-create']">
+    <mat-icon aria-label="Icon add player">add</mat-icon>
+  </a>
+
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="dni">
+      <mat-header-cell *matHeaderCellDef> DNI </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="dni-col"> {{element.dni}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="apellidos">
+      <mat-header-cell *matHeaderCellDef> Apellidos </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.apellidos}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/jugador-details/', row._id]"></mat-row>
+  </mat-table>
+</div>
