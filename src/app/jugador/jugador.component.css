@@ -15,6 +15,7 @@
 
 .cardList > * {
     box-sizing: border-box;
+    margin-top: 32px;
 }
 .cardList > *:not(:last-child) {
     margin-right: 32px;
