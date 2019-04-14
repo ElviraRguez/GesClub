@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-jugador',
@@ -11,12 +12,11 @@ export class JugadorComponent implements OnInit {
 
   jugadores: any;
 
-  constructor(private api: ApiService) { }
+  constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.api.getJugadores()
       .subscribe(res => {
-        console.log(res);
         this.jugadores = res;
       }, err => {
         console.log(err);
@@ -24,6 +24,13 @@ export class JugadorComponent implements OnInit {
   }
 
   deleteJugador(id) {
-
+    this.api.deleteJugador(id)
+    .subscribe(res => {
+        window.location.reload();
+        //this.router.navigate(['/jugadores']);
+      }, (err) => {
+        console.log(err);
+      }
+    );
   }
 }
