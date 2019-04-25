@@ -16,13 +16,15 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatCardModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatToolbarModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { JugadorComponent } from './jugador/jugador.component';
 import { JugadorCreateComponent } from './jugador-create/jugador-create.component';
 import { JugadorEditComponent } from './jugador-edit/jugador-edit.component';
+import { HeaderComponent } from './header/header.component';
 
 const appRoutes: Routes = [
   {
@@ -52,7 +54,8 @@ const appRoutes: Routes = [
     AppComponent,
     JugadorComponent,
     JugadorCreateComponent,
-    JugadorEditComponent
+    JugadorEditComponent,
+    HeaderComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -72,7 +75,8 @@ const appRoutes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatToolbarModule
   ],
   providers: [
     MatDatepickerModule,
