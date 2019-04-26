@@ -1,0 +1,35 @@
+.container {
+  padding: 3%;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardList > * {
+  box-sizing: border-box;
+  margin-top: 32px;
+
+  width: 200px;
+}
+.cardList > *:not(:last-child) {
+  margin-right: 32px;
+}
+
+.card {
+  border-radius: 35px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+.mat-card-image {
+  height: 200px;
+}

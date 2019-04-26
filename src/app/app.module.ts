@@ -25,8 +25,15 @@ import { JugadorComponent } from './jugador/jugador.component';
 import { JugadorCreateComponent } from './jugador-create/jugador-create.component';
 import { JugadorEditComponent } from './jugador-edit/jugador-edit.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { MenuComponent } from './menu/menu.component';
 
 const appRoutes: Routes = [
+  {
+    path: 'menu',
+    component: MenuComponent,
+    data: { title: 'Menú' }
+  },
   {
     path: 'jugadores',
     component: JugadorComponent,
@@ -44,7 +51,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/jugadores',
+    redirectTo: '/menu',
     pathMatch: 'full'
   }
 ];
@@ -55,7 +62,9 @@ const appRoutes: Routes = [
     JugadorComponent,
     JugadorCreateComponent,
     JugadorEditComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    MenuComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
