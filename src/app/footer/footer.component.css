@@ -1,4 +1,9 @@
 footer {
-  padding: 2%;
+  padding: 1%;
   text-align: center;
+  color: white;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

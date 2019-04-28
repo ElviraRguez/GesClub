@@ -1,9 +1,22 @@
 .container {
-  padding: 3%;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .content {
   margin-top: 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  height: 150px;
+  width: 150px;
 }
 
 .cardList {
@@ -15,9 +28,8 @@
 
 .cardList > * {
   box-sizing: border-box;
-  margin-top: 32px;
-
-  width: 200px;
+  margin-top: 1%;
+  width: 150px;
 }
 .cardList > *:not(:last-child) {
   margin-right: 32px;
@@ -31,5 +43,9 @@
 }
 
 .mat-card-image {
-  height: 200px;
+  height: 150px;
+}
+
+.title {
+  color: white;
 }
