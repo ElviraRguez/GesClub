@@ -51,7 +51,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/menu',
+    redirectTo: '/jugadores',
     pathMatch: 'full'
   }
 ];

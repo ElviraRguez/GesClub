@@ -9,13 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./jugador.component.css']
 })
 export class JugadorComponent implements OnInit {
-
+  displayedColumns: string[] = ['nombre', 'dni', 'edad', 'pais', 'categoria', 'observaciones', 'actions'];
   jugadores: any;
 
   constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
 
   ngOnInit() {
-    this.api.getJugadores()
+    this.api.getMiembros()
       .subscribe(res => {
         this.jugadores = res;
       }, err => {
@@ -24,7 +24,7 @@ export class JugadorComponent implements OnInit {
   }
 
   deleteJugador(id) {
-    this.api.deleteJugador(id)
+    this.api.deleteMiembro(id)
     .subscribe(res => {
         window.location.reload();
         //this.router.navigate(['/jugadores']);

@@ -34,7 +34,7 @@ export class JugadorEditComponent implements OnInit {
   }
 
   getJugador(id) {
-    this.api.getJugador(id).subscribe(data => {
+    this.api.getMiembro(id).subscribe(data => {
       this.id = data._id;
       this.jugadorForm.setValue({
         dni: data.dni,
@@ -50,7 +50,7 @@ export class JugadorEditComponent implements OnInit {
   onFormSubmit(form: NgForm) {
     form['edad'] = this.api.calcularEdad(form['fechaNacimiento']);
 
-    this.api.updateJugador(this.id, form)
+    this.api.updateMiembro(this.id, form)
       .subscribe(res => {
           let id = res['_id'];
           this.router.navigate(['/jugadores']);

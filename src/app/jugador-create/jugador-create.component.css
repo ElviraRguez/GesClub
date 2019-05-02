@@ -4,19 +4,30 @@
 
 .content {
     margin-top: 20px;
+    padding: 1px 1%;
 }
 
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
+.form {
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  background-color: rgba(242, 242, 242, 0.6);
+}
+
+.row {
+  display: flex;
+}
+
+.col-6 {
+  width: 50%;
+  margin-right: 1%;
+}
+
+.full-width {
     width: 100%;
 }
 
-.example-full-width {
-    width: 100%;
-}
-
-.example-full-width:nth-last-child() {
+.full-width:nth-last-child() {
     margin-bottom: 10px;
 }
 

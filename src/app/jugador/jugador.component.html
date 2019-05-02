@@ -3,29 +3,52 @@
     <mat-icon aria-label="Icon add player">add</mat-icon>
   </a>
 
-  <div class="cardList">
-    <div *ngFor="let jugador of jugadores">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            <h3>{{jugador.nombre}} {{jugador.apellidos}}</h3>
-          </mat-card-title>
-          <mat-card-subtitle>{{jugador.dni}}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>Fecha de Nacimiento: {{jugador.fechaNacimiento | date}}</p>
-          <p>Edad: {{jugador.edad}}</p>
-          <p>Pais:{{jugador.pais}}</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <a mat-raised-button color="primary" [routerLink]="['/jugador-edit', jugador._id]">
+  <div class="content">
+    <mat-table [dataSource]="jugadores" class="mat-elevation-z8">
+      <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nombre}} {{element.apellidos}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="dni">
+        <mat-header-cell *matHeaderCellDef> DNI </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.dni}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="edad">
+        <mat-header-cell *matHeaderCellDef> Edad </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.edad}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="pais">
+        <mat-header-cell *matHeaderCellDef> Pais </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.pais}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="categoria">
+        <mat-header-cell *matHeaderCellDef> Categoria </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.categoria}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="observaciones">
+        <mat-header-cell *matHeaderCellDef> Observaciones </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.observaciones}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <a mat-icon-button color="primary" [routerLink]="['/jugador-edit', element._id]">
             <mat-icon>edit</mat-icon>
           </a>
-          <a mat-raised-button color="warn" (click)="deleteJugador(jugador._id)">
+          <a mat-icon-button color="warn" (click)="deleteJugador(element._id)">
             <mat-icon>delete</mat-icon>
           </a>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
   </div>
 </div>

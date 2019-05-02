@@ -12,20 +12,22 @@ const httpOptions = {
 })
 export class ApiService {
 
-  private apiUrl = '/api';
+  private apiUrlMiembro = '/api/miembro';
+  private apiUrlClub = '/api/club';
+  private apiUrlCategoria = '/api/categoria';
 
   constructor(private http: HttpClient) { }
 
-  getJugadores(): Observable<any> {
-    return this.http.get(this.apiUrl, httpOptions)
+  getMiembros(): Observable<any> {
+    return this.http.get(this.apiUrlMiembro, httpOptions)
                     .pipe(
                         map(this.extractData),
                         catchError(this.handleError)
                     );
   }
 
-  getJugador(id: string): Observable<any> {
-    const url = `${this.apiUrl}/${id}`;
+  getMiembro(id: string): Observable<any> {
+    const url = `${this.apiUrlMiembro}/${id}`;
     return this.http.get(url, httpOptions)
                     .pipe(
                       map(this.extractData),
@@ -33,26 +35,55 @@ export class ApiService {
                     );
   }
 
-  postJugador(data): Observable<any> {
-    return this.http.post(this.apiUrl, data, httpOptions)
+  postMiembro(data): Observable<any> {
+    return this.http.post(this.apiUrlMiembro, data, httpOptions)
                     .pipe(
                       catchError(this.handleError)
                     );
   }
 
-  updateJugador(id: string, data): Observable<any> {
-    const url = `${this.apiUrl}/${id}`;
+  updateMiembro(id: string, data): Observable<any> {
+    const url = `${this.apiUrlMiembro}/${id}`;
     return this.http.put(url, data, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
   }
 
-  deleteJugador(id: string): Observable<{}> {
-    const url = `${this.apiUrl}/${id}`;
+  deleteMiembro(id: string): Observable<{}> {
+    const url = `${this.apiUrlMiembro}/${id}`;
     return this.http.delete(url, httpOptions)
                     .pipe(
                       catchError(this.handleError)
+                    );
+  }
+
+  calcularEdad(fecha) {
+    const hoy = new Date();
+    const cumpleanos = new Date(fecha);
+    let edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    const m = hoy.getMonth() - cumpleanos.getMonth();
+
+    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+    }
+
+    return edad;
+  }
+
+  getClubs(): Observable<any> {
+    return this.http.get(this.apiUrlClub, httpOptions)
+                    .pipe(
+                        map(this.extractData),
+                        catchError(this.handleError)
+                    );
+  }
+
+  getCategorias(): Observable<any> {
+    return this.http.get(this.apiUrlCategoria, httpOptions)
+                    .pipe(
+                        map(this.extractData),
+                        catchError(this.handleError)
                     );
   }
 
@@ -69,18 +100,5 @@ export class ApiService {
         `body was: ${error.error}`);
     }
     return throwError('Something bad happened; please try again later.');
-  }
-
-  calcularEdad(fecha) {
-    const hoy = new Date();
-    const cumpleanos = new Date(fecha);
-    let edad = hoy.getFullYear() - cumpleanos.getFullYear();
-    const m = hoy.getMonth() - cumpleanos.getMonth();
-
-    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
-        edad--;
-    }
-
-    return edad;
   }
 }
