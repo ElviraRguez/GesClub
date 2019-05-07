@@ -1,0 +1,27 @@
+<div>
+  <div class="header">
+    <div class="logo"><img src="assets/img/logo-cardonal.png" alt="Logo club"></div>
+  </div>
+
+  <div class="content">
+    <mat-card>
+      <mat-card-content>
+        <form>
+          <p>
+            <mat-form-field>
+              <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+            </mat-form-field>
+          </p>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="login()" color="primary">Iniciar Sesión</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

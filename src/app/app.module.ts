@@ -27,8 +27,14 @@ import { JugadorEditComponent } from './jugador-edit/jugador-edit.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: { title: 'Login' }
+  },
   {
     path: 'menu',
     component: MenuComponent,
@@ -51,7 +57,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/jugadores',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 ];
@@ -64,7 +70,8 @@ const appRoutes: Routes = [
     JugadorEditComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    LoginComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
