@@ -27,6 +27,9 @@ import { JugadorEditComponent } from './jugador-edit/jugador-edit.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
+import { IncidenciaComponent } from './incidencia/incidencia.component';
+import { IncidenciaCreateComponent } from './incidencia-create/incidencia-create.component';
+import { IncidenciaEditComponent } from './incidencia-edit/incidencia-edit.component';
 
 const appRoutes: Routes = [
   {
@@ -48,10 +51,22 @@ const appRoutes: Routes = [
     path: 'jugador-edit/:id',
     component: JugadorEditComponent,
     data: { title: 'Editar Jugador' }
+  },{
+    path: 'incidencias',
+    component: IncidenciaComponent,
+    data: { title: 'incidencias' }
+  },{
+    path: 'incidencias-create',
+    component: IncidenciaCreateComponent,
+    data: { title: 'incidencias-create' }
+  },{
+    path: 'incidencias-edit',
+    component: IncidenciaEditComponent,
+    data: { title: 'incidencias-edit' }
   },
   {
     path: '',
-    redirectTo: '/jugadores',
+    redirectTo: '/menu',
     pathMatch: 'full'
   }
 ];
@@ -64,7 +79,10 @@ const appRoutes: Routes = [
     JugadorEditComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    IncidenciaComponent,
+    IncidenciaCreateComponent,
+    IncidenciaEditComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
