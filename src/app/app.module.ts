@@ -31,7 +31,7 @@ import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LoginComponent,
     data: { title: 'Login' }
   },
@@ -54,11 +54,6 @@ const appRoutes: Routes = [
     path: 'jugador-edit/:id',
     component: JugadorEditComponent,
     data: { title: 'Editar Jugador' }
-  },
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
   }
 ];
 

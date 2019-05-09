@@ -5,7 +5,7 @@ export class Usuario {
   public nombre: string;
   public telefono: number;
 
-  private constructor(d: any) {
+  public constructor(d: any) {
     this._id = d._id;
     this.email = d.email;
     this.contraseña = d.contraseña;

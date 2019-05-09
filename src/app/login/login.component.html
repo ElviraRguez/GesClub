@@ -1,4 +1,5 @@
-<div>
+<app-header></app-header>
+<div class="container">
   <div class="header">
     <div class="logo"><img src="assets/img/logo-cardonal.png" alt="Logo club"></div>
   </div>
@@ -16,7 +17,7 @@
                 <input matInput placeholder="Contraseña" formControlName="password" type="password" required>
               </mat-form-field>
             </p>
-          <button type="submit" [disabled]="!sesionForm.valid" mat-raised-button color="primary">
+          <button type="submit" [disabled]="!sesionForm.valid" mat-raised-button color="primary" class="button">
             Iniciar Sesión
           </button>
       </form>
