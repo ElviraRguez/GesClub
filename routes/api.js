@@ -8,6 +8,18 @@ var Categoria = require('../models/categoria');
 var Club = require('../models/club');
 var Incidencia = require('../models/incidencia');
 
+
+//USUARIOS
+router.post('/login', function(req, res, next) {
+  Usuario.findOne({email: req.body.email}, function(err, user) {
+    if(!user || user.password != req.body.password) {
+      return next(err);
+    }
+    return res.json(user);
+  });
+});
+
+
 //MIEMBRO
 router.get('/miembro', function(req, res, next) {
   Miembro.find(function (err, products) {

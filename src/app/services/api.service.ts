@@ -12,11 +12,19 @@ const httpOptions = {
 })
 export class ApiService {
 
+  private apiUrlLogin = '/api/login';
   private apiUrlMiembro = '/api/miembro';
   private apiUrlClub = '/api/club';
   private apiUrlCategoria = '/api/categoria';
 
   constructor(private http: HttpClient) { }
+
+  login(data): Observable<any> {
+    return this.http.post(this.apiUrlLogin, data, httpOptions)
+                        .pipe(
+                          catchError(this.handleError)
+                        );
+  }
 
   getMiembros(): Observable<any> {
     return this.http.get(this.apiUrlMiembro, httpOptions)

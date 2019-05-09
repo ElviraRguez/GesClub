@@ -4,23 +4,23 @@
   </a>
 
   <div class="content">
-    <form [formGroup]="jugadorForm" (ngSubmit)="onFormSubmit(jugadorForm.value)">
+    <form [formGroup]="jugadorForm" (ngSubmit)="onFormSubmit(jugadorForm)">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="DNI" formControlName="dni" [errorStateMatcher]="matcher">
+        <input matInput placeholder="DNI" formControlName="dni">
         <mat-error>
           <span *ngIf="!jugadorForm.get('dni').valid && jugadorForm.get('dni').touched">Por favor, introduzca un DNI valido para el jugador.</span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Nombre" formControlName="nombre" [errorStateMatcher]="matcher">
+        <input matInput placeholder="Nombre" formControlName="nombre">
         <mat-error>
           <span *ngIf="!jugadorForm.get('nombre').valid && jugadorForm.get('nombre').touched">Por favor, introduzca el nombre del jugador.</span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Apellidos" formControlName="apellidos" [errorStateMatcher]="matcher">
+        <input matInput placeholder="Apellidos" formControlName="apellidos">
         <mat-error>
           <span *ngIf="!jugadorForm.get('apellidos').valid && jugadorForm.get('apellidos').touched">Por favor, introduzca los apellidos del jugador.</span>
         </mat-error>

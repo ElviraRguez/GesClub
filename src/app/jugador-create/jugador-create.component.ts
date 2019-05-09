@@ -47,7 +47,7 @@ export class JugadorCreateComponent implements OnInit {
       form.value.observaciones = 'Nada';
     }
 
-    /*this.api.postMiembro(form)
+    /*this.api.postMiembro(form.value)
       .subscribe(res => {
           this.router.navigate(['/jugadores']);
         }, (err) => {

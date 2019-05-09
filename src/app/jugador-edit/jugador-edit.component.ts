@@ -12,17 +12,11 @@ export class JugadorEditComponent implements OnInit {
 
   jugadorForm: FormGroup;
   id: string = null;
-  dni: string = null;
-  nombre: string = null;
-  apellidos: string = null;
-  fechaNacimiento: Date = null;
-  edad: number = null;
-  pais: string = null;
 
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.getJugador(this.route.snapshot.params['id']);
+    this.getJugador(this.route.snapshot.params.id);
     this.jugadorForm = this.formBuilder.group({
       dni : [null, Validators.required],
       nombre : [null, Validators.required],
@@ -48,11 +42,10 @@ export class JugadorEditComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
-    form['edad'] = this.api.calcularEdad(form['fechaNacimiento']);
+    form.value.edad = this.api.calcularEdad(form.value.fechaNacimiento);
 
     this.api.updateMiembro(this.id, form)
       .subscribe(res => {
-          let id = res['_id'];
           this.router.navigate(['/jugadores']);
         }, (err) => {
           console.log(err);
