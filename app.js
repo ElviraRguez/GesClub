@@ -5,7 +5,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/gesclub',  { useNewUrlParser: true })
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017/GesClub',  { useNewUrlParser: true })
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
 

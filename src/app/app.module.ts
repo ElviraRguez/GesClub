@@ -56,11 +56,11 @@ const appRoutes: Routes = [
     component: IncidenciaComponent,
     data: { title: 'incidencias' }
   },{
-    path: 'incidencias-create',
+    path: 'incidencia-create',
     component: IncidenciaCreateComponent,
-    data: { title: 'incidencias-create' }
+    data: { title: 'incidencia-create' }
   },{
-    path: 'incidencias-edit',
+    path: 'incidencia-edit',
     component: IncidenciaEditComponent,
     data: { title: 'incidencias-edit' }
   },
