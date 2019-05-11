@@ -18,6 +18,7 @@ export class JugadorComponent implements OnInit {
     this.api.getMiembros()
       .subscribe(res => {
         this.jugadores = res;
+        console.log(res);
       }, err => {
         console.log(err);
       });

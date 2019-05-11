@@ -15,7 +15,7 @@ export class IncidenciaComponent {
 
     constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
 
-   /* ngOnInit() {
+    ngOnInit() {
         this.api.getIncidencias()
           .subscribe(res => {
             this.incidencias = res;
@@ -33,5 +33,5 @@ export class IncidenciaComponent {
             console.log(err);
           }
         );
-      }*/
+      }
 }

@@ -13,6 +13,7 @@ router.get('/miembro', function(req, res, next) {
   Miembro.find(function (err, products) {
     if (err) return next(err);
     res.json(products);
+    console.log("api get miembros");
   });
 });
 
@@ -111,6 +112,43 @@ router.put('/club/:id', function(req, res, next) {
 
 router.delete('/club/:id', function(req, res, next) {
   Club.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+//INCIDENCIA
+router.get('/incidencia', function(req, res, next) {
+  Incidencia.find(function (err, products) {
+    if (err) return next(err);
+    res.json(products);
+    console.log("api get incidencias");
+  });
+});
+
+router.get('/incidencia/:id', function(req, res, next) {
+  Incidencia.findById(req.params.id, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+router.post('/incidencia', function(req, res, next) {
+  Incidencia.create(req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+router.put('/incidencia/:id', function(req, res, next) {
+  Incidencia.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+router.delete('/incidencia/:id', function(req, res, next) {
+  Incidencia.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });

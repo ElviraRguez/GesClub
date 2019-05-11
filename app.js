@@ -17,8 +17,8 @@ var app = express();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'dist/gesclub')));
-app.use('/menu', express.static(path.join(__dirname, 'dist/gesclub')));
+app.use(express.static(path.join(__dirname, 'dist/GesClub')));
+//app.use('/jugadores', express.static(path.join(__dirname, 'dist/gesclub')));
 app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
