@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Usuario } from '../models/usuario';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,11 +14,15 @@ export class HeaderComponent implements OnInit {
 
   username: string;
 
-  constructor() { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     if (user != null) { this.username = user.name; }
   }
 
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/']);
+  }
 }

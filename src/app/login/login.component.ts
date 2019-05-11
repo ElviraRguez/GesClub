@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
-import { LoginService } from '../services/login.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +12,10 @@ export class LoginComponent implements OnInit {
 
   sesionForm: FormGroup;
 
-  constructor(private router: Router, private loginService: LoginService, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private authService: AuthService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.loginService.logout();
+    this.authService.logout();
     this.sesionForm = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(4)]]
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(form: NgForm) {
-    this.loginService.login(form.value)
+    this.authService.login(form.value)
       .subscribe(res => {
           this.router.navigate(['/menu']);
         }, (err) => {

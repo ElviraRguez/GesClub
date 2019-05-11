@@ -11,14 +11,14 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AuthService {
 
-  private apiUrlLogin = '/api/login';
+  private apiUrlAuth = '/api/login';
 
   constructor(private http: HttpClient) { }
 
   login(data): Observable<any> {
-    return this.http.post(this.apiUrlLogin, data, httpOptions)
+    return this.http.post(this.apiUrlAuth, data, httpOptions)
                         .pipe(
                           map(user => {
                             const u = new Usuario(user);

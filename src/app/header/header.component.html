@@ -3,6 +3,11 @@
     <img class="logo-size" src="assets/img/logo-cardonal.png" alt="logo">
     <span>GESCLUB</span>
     <span class="spacer"></span>
-    <span *ngIf="isUserLoggedIn">{{username}}</span>
+    <span *ngIf="isUserLoggedIn">
+      {{username}}
+      <a mat-icon-button (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+      </a>
+    </span>
   </mat-toolbar-row>
 </mat-toolbar>
