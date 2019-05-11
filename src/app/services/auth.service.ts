@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private apiUrlAuth = '/api/login';
+  private apiUrlAuth = '/api/auth';
 
   constructor(private http: HttpClient) { }
 

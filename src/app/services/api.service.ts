@@ -18,6 +18,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  /* ************* MIEMBROS *************** */
   getMiembros(): Observable<any> {
     return this.http.get(this.apiUrlMiembro, httpOptions)
                     .pipe(
@@ -38,6 +39,15 @@ export class ApiService {
   postMiembro(data): Observable<any> {
     return this.http.post(this.apiUrlMiembro, data, httpOptions)
                     .pipe(
+                      catchError(this.handleError)
+                    );
+  }
+
+  postMiembrosClub(club): Observable<any> {
+    const url = this.apiUrlMiembro + '/club';
+    return this.http.post(url, club, httpOptions)
+                    .pipe(
+                      map(this.extractData),
                       catchError(this.handleError)
                     );
   }
@@ -71,6 +81,7 @@ export class ApiService {
     return edad;
   }
 
+  /* ************* CLUBES *************** */
   getClubs(): Observable<any> {
     return this.http.get(this.apiUrlClub, httpOptions)
                     .pipe(
@@ -79,11 +90,28 @@ export class ApiService {
                     );
   }
 
+  postClubUsuario(idUsuario): Observable<any> {
+    return this.http.post(this.apiUrlClub, idUsuario, httpOptions)
+                    .pipe(
+                      catchError(this.handleError)
+                    );
+  }
+
+  /* ************** CATEGORIAS ************** */
   getCategorias(): Observable<any> {
     return this.http.get(this.apiUrlCategoria, httpOptions)
                     .pipe(
                         map(this.extractData),
                         catchError(this.handleError)
+                    );
+  }
+
+  getCategoria(id: string): Observable<any> {
+    const url = `${this.apiUrlCategoria}/${id}`;
+    return this.http.get(url, httpOptions)
+                    .pipe(
+                      map(this.extractData),
+                      catchError(this.handleError)
                     );
   }
 
