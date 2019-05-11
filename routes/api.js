@@ -121,7 +121,9 @@ router.delete('/club/:id', function(req, res, next) {
 router.get('/incidencia', function(req, res, next) {
   Incidencia.find(function (err, products) {
     if (err) return next(err);
-    res.json(products);
+    Miembro.populate(products, {path: "miembro"},function(err, products){ //esto hace que cargue todo el objeto miembro a partir del Id.
+      res.status(200).send(products);
+    }); 
     console.log("api get incidencias");
   });
 });

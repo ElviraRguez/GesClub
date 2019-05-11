@@ -60,7 +60,7 @@ const appRoutes: Routes = [
     component: IncidenciaCreateComponent,
     data: { title: 'incidencia-create' }
   },{
-    path: 'incidencia-edit',
+    path: 'incidencia-edit/:id',
     component: IncidenciaEditComponent,
     data: { title: 'incidencias-edit' }
   },

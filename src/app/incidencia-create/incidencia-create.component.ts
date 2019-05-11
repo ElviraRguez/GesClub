@@ -14,12 +14,13 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 export class IncidenciaCreateComponent implements OnInit {
 
   incidenciaForm: FormGroup;
-  miembro: Observable<any>;
+  miembros: Observable<any>;
   
   constructor(private router: Router, private api: ApiService,private formBuilder:FormBuilder,private datePipe: DatePipe) { }
 
   ngOnInit() {
-    this.api.getMiembros().subscribe(res => {this.miembro = res;});
+    this.api.getMiembros().subscribe(res => {this.miembros = res;});
+    console.log(this.miembros,"miembros");
   
   this.incidenciaForm = this.formBuilder.group({
     asunto : [null],
@@ -30,5 +31,13 @@ export class IncidenciaCreateComponent implements OnInit {
   });
   }
 
-  //metodo para insertar incidencia
+  onFormSubmit(form: NgForm) {
+    console.log(form.value);
+    this.api.postIncidencia(form.value)
+      .subscribe(res => {
+        this.router.navigate(['/incidencias']);
+      }, (err) => {
+        console.log(err);
+      });
+  }
 }

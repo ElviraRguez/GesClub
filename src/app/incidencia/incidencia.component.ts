@@ -19,6 +19,7 @@ export class IncidenciaComponent {
         this.api.getIncidencias()
           .subscribe(res => {
             this.incidencias = res;
+            console.log("incidencias",this.incidencias);
           }, err => {
             console.log(err);
           });
@@ -27,8 +28,7 @@ export class IncidenciaComponent {
       deleteIncidencia(id) {
         this.api.deleteIncidencia(id)
         .subscribe(res => {
-            window.location.reload();
-            //this.router.navigate(['/jugadores']);
+            this.router.navigate(['/incidencias']);
           }, (err) => {
             console.log(err);
           }
