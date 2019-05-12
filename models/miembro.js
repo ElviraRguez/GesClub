@@ -21,7 +21,13 @@ var miembroSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Categoria'
   },
-  observaciones: String
+  observaciones: String,
+  equipaje : {
+    tallaCamisa : String,
+    tallaPantalon : String
+  },
+  cantidadCuota : Number,
+  cuotaPagada : Boolean
 });
 
 module.exports = mongoose.model('Miembro', miembroSchema);

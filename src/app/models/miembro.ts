@@ -1,9 +1,10 @@
 import { Contacto } from './contacto';
 import { Club } from './club';
 import { Categoria } from './categoria';
+import { Equipaje } from './equipaje';
 
 export class Miembro {
-  constructor(dni, nombre, apellidos, fechaNacimiento, edad, contacto, funcion, club, categoria, pais, observaciones){
+  constructor(dni, nombre, apellidos, fechaNacimiento, edad, funcion, pais, observaciones, cuotaPagada, cantidadCuota) {
     this.dni = dni;
     this.nombre = nombre;
     this.apellidos = apellidos;
@@ -12,6 +13,8 @@ export class Miembro {
     this.funcion = funcion;
     this.pais = pais;
     this.observaciones = observaciones;
+    this.cantidadCuota = cantidadCuota;
+    this.cuotaPagada = cuotaPagada;
   }
   public dni: string;
   public nombre: string;
@@ -24,4 +27,7 @@ export class Miembro {
   public categoria: Categoria;
   public pais: string;
   public observaciones: string;
+  public equipaje: Equipaje;
+  public cantidadCuota: number;
+  public cuotaPagada: boolean;
 }

@@ -10,7 +10,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
   styleUrls: ['./jugador.component.css']
 })
 export class JugadorComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'dni', 'edad', 'categoria', 'observaciones', 'pais', 'actions'];
+  displayedColumns: string[] = ['nombre', 'dni', 'email', 'edad', 'categoria', 'telefono', 'direccion', 'pais', 'observaciones', 'actions'];
   jugadores: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -29,8 +29,6 @@ export class JugadorComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    console.log(this.jugadores.data);
-    console.log(this.jugadores.filter);
     this.jugadores.filter = filterValue.trim().toLowerCase();
 
     if (this.jugadores.paginator) {
