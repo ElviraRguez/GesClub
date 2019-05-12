@@ -66,15 +66,16 @@ const appRoutes: Routes = [
     path: 'incidencia-create',
     component: IncidenciaCreateComponent,
     data: { title: 'incidencia-create' }
-  },{
+  },
+  {
     path: 'incidencia-edit/:id',
     component: IncidenciaEditComponent,
     data: { title: 'incidencias-edit' }
   },
   {
-    path: '',
-    redirectTo: '/menu',
-    pathMatch: 'full'
+    path: 'partidos',
+    component: PartidosComponent,
+    data: { title: 'partidos' }
   }
 ];
 
