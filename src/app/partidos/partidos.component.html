@@ -1,0 +1,58 @@
+<!doctype html>
+<html ng-app="app">
+
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+</head>
+
+
+<body>
+<a mat-raised-button color="primary" [routerLink]="['/partidos']"></a>
+
+<div>
+  <button ng-click="exportar()" disabled>Exportar PDF</button>
+</div>
+
+<div class="content" id="exportthis">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+   <!-- Fecha -->
+   <ng-container matColumnDef="fecha">
+    <th mat-header-cell *matHeaderCellDef> Fecha </th>
+    <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+  </ng-container>
+
+  <!-- Hora -->
+  <ng-container matColumnDef="hora">
+    <th mat-header-cell *matHeaderCellDef> Hora </th>
+    <td mat-cell *matCellDef="let element"> {{element.hora}} </td>
+  </ng-container>
+
+  <!-- Local -->
+  <ng-container matColumnDef="local">
+    <th mat-header-cell *matHeaderCellDef> Local </th>
+    <td mat-cell *matCellDef="let element"> {{element.local}} </td>
+  </ng-container>
+
+  <!-- Visistante -->
+  <ng-container matColumnDef="visitante">
+    <th mat-header-cell *matHeaderCellDef> Visitante </th>
+    <td mat-cell *matCellDef="let element"> {{element.visitante}} </td>
+  </ng-container>
+
+  <!-- Campo -->
+  <ng-container matColumnDef="campo">
+    <th mat-header-cell *matHeaderCellDef> Campo </th>
+    <td mat-cell *matCellDef="let element"> {{element.campo}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+
+</body>
+
+</html>

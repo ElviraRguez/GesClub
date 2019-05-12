@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { IncidenciaComponent } from './incidencia/incidencia.component';
 import { IncidenciaCreateComponent } from './incidencia-create/incidencia-create.component';
 import { IncidenciaEditComponent } from './incidencia-edit/incidencia-edit.component';
+import { PartidosComponent } from './partidos/partidos.component';
 
 const appRoutes: Routes = [
   {
@@ -89,7 +90,8 @@ const appRoutes: Routes = [
     LoginComponent,
     IncidenciaComponent,
     IncidenciaCreateComponent,
-    IncidenciaEditComponent
+    IncidenciaEditComponent,
+    PartidosComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
