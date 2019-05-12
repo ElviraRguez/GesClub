@@ -1,5 +1,6 @@
 .container {
     padding: 3%;
+    background: linear-gradient(to right, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
 }
 
 .content {
@@ -20,17 +21,18 @@
 
 .col-6 {
   width: 50%;
-  margin-right: 1%;
+  margin-right: 2%;
 }
 
 .full-width {
     width: 100%;
 }
 
+/*
 .full-width:nth-last-child() {
     margin-bottom: 10px;
 }
-
+*/
 .button-row {
     margin: 10px 0;
 }

@@ -46,8 +46,9 @@ export class JugadorComponent implements OnInit {
     );
   }
 
-  private miembrosClub(club) {
-    this.api.postMiembrosClub({club: club._id})
+  private miembrosClub(clubs) {
+    clubs.forEach(club => {
+      this.api.postMiembrosClub({club: club._id})
       .subscribe(miembros => {
         this.getCategoriaName(miembros);
         this.jugadores = new MatTableDataSource<any>(miembros);
@@ -57,6 +58,7 @@ export class JugadorComponent implements OnInit {
       }, err => {
         console.log(err);
       });
+    });
   }
 
   private getCategoriaName(miembros) {

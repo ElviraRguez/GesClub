@@ -115,6 +115,14 @@ export class ApiService {
                     );
   }
 
+  getCategoriaClub(idClub): Observable<any> {
+    const url = this.apiUrlCategoria + '/club';
+    return this.http.post(url, idClub, httpOptions)
+                    .pipe(
+                      catchError(this.handleError)
+                    );
+  }
+
   private extractData(res: Response) {
     return res || {};
   }

@@ -28,7 +28,7 @@ router.get('/club', function(req, res, next) {
 });
 
 router.post('/club', function(req, res, next) {
-  Club.findOne({idUsuario: req.body.idUsuario}, function(err, club) {
+  Club.find({idUsuario: req.body.idUsuario}, function(err, club) {
     if(!club) { return next(err); }
     return res.json(club);
   });
@@ -92,5 +92,11 @@ router.get('/categoria/:id', function(req, res, next) {
   });
 });
 
+router.post('/categoria/club', function(req, res, next) {
+  Categoria.find({club: req.body.club}, function(err, categoria) {
+    if(!categoria) { return next(err); }
+    return res.json(categoria);
+  });
+});
 
 module.exports = router;

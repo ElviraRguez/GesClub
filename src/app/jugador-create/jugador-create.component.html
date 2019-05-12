@@ -46,6 +46,9 @@
             <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
+            <mat-error>
+              <span *ngIf="!jugadorForm.get('fechaNacimiento').valid && jugadorForm.get('fechaNacimiento').touched">Por favor, introduzca un fecha de nacimiento válida.</span>
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="full-width">
@@ -84,15 +87,14 @@
           <mat-form-field class="full-width">
             <mat-label>Club</mat-label>
             <mat-select formControlName="club" required>
-              <mat-option *ngFor="let club of clubs" [value]="club">{{ club.nombre }}</mat-option>
+              <mat-option *ngFor="let club of clubs" [value]="club._id">{{ club.nombre }}</mat-option>
             </mat-select>
           </mat-form-field>
 
-          <!-- TODO MOSTRAR SOLO LAS CATEGORIAS DEL CLUB SELECCIONADO -->
           <mat-form-field class="full-width">
             <mat-label>Categoría</mat-label>
             <mat-select formControlName="categoria" required>
-              <mat-option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria.nombre }}</mat-option>
+              <mat-option *ngFor="let categoria of categorias" [value]="categoria._id">{{ categoria.nombre }}</mat-option>
             </mat-select>
           </mat-form-field>
 

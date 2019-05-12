@@ -21,37 +21,52 @@ export class JugadorCreateComponent implements OnInit {
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder, private datePipe: DatePipe) { }
 
   ngOnInit() {
-    this.api.getClubs().subscribe(res => { this.clubs = res; });
-    this.api.getCategorias().subscribe(res => { this.categorias = res; });
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    this.api.postClubUsuario({idUsuario: user.token}).subscribe(clubs => {
+      this.clubs = clubs;
+      clubs.forEach(club => {
+        this.api.getCategoriaClub({club: club._id}).subscribe(res => {
+          this.categorias = res;
+        });
+      });
+    });
 
     this.jugadorForm = this.formBuilder.group({
       dni : [null, [Validators.required, Validators.pattern(/^[XYZ]?([0-9]{7,8})([A-Z])$/)]],
       nombre : [null, Validators.required],
       apellidos : [null, Validators.required],
-      fechaNacimiento : [null, Validators.required],
+      fechaNacimiento : [null, [Validators.required, this.validateDate]],
       pais : [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
       telefono: [null, [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
       direccion: [null, Validators.required],
       observaciones: [null],
-      funcion: [null],
-      club: [null],
-      categoria: [null]
+      funcion: [null, Validators.required],
+      club: [null, Validators.required],
+      categoria: [null, Validators.required]
     });
+  }
+
+  validateDate(control: FormControl) {
+    const fechaActual = new Date();
+    if (control.value > fechaActual || control.value === fechaActual) {
+      return {fechaNacimiento: false};
+    }
+    return null;
   }
 
   onFormSubmit(form: NgForm) {
     console.log(form.value);
     form.value.edad = this.api.calcularEdad(form.value.fechaNacimiento);
-    if(form.value.observaciones == null) {
+    if (form.value.observaciones == null) {
       form.value.observaciones = 'Nada';
     }
 
-    /*this.api.postMiembro(form.value)
+    this.api.postMiembro(form.value)
       .subscribe(res => {
           this.router.navigate(['/jugadores']);
         }, (err) => {
           console.log(err);
-        });*/
+        });
   }
 }
