@@ -15,6 +15,7 @@ export class ApiService {
   private apiUrlMiembro = '/api/miembro';
   private apiUrlClub = '/api/club';
   private apiUrlCategoria = '/api/categoria';
+  private apiUrlIncidencia = '/api/incidencia';
 
   constructor(private http: HttpClient) { }
 
@@ -114,10 +115,49 @@ export class ApiService {
                       catchError(this.handleError)
                     );
   }
-
   getCategoriaClub(idClub): Observable<any> {
     const url = this.apiUrlCategoria + '/club';
     return this.http.post(url, idClub, httpOptions)
+                    .pipe(
+                      catchError(this.handleError)
+                    );
+  }
+  //Incidencias
+  getIncidencias(): Observable<any> {
+    return this.http.get(this.apiUrlIncidencia, httpOptions)
+                    .pipe(
+                        map(this.extractData),
+                        catchError(this.handleError)
+                    );
+  }
+
+  getIncidencia(id: string): Observable<any> {
+    const url = `${this.apiUrlIncidencia}/${id}`;
+    return this.http.get(url, httpOptions)
+                    .pipe(
+                      map(this.extractData),
+                      catchError(this.handleError)
+                    );
+  }
+
+  postIncidencia(data): Observable<any> {
+    return this.http.post(this.apiUrlIncidencia, data, httpOptions)
+                    .pipe(
+                      catchError(this.handleError)
+                    );
+  }
+
+  updateIncidencia(id: string, data): Observable<any> {
+    const url = `${this.apiUrlIncidencia}/${id}`;
+    return this.http.put(url, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  deleteIncidencia(id: string): Observable<{}> {
+    const url = `${this.apiUrlIncidencia}/${id}`;
+    return this.http.delete(url, httpOptions)
                     .pipe(
                       catchError(this.handleError)
                     );

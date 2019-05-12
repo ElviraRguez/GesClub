@@ -1,6 +1,6 @@
 <mat-toolbar class="dark">
   <mat-toolbar-row>
-    <img class="logo-size" src="assets/img/logo-cardonal.png" alt="logo">
+    <a [routerLink]="['/menu']"><img class="logo-size" src="assets/img/logo-cardonal.png" alt="logo"></a>
     <span>GESCLUB</span>
     <span class="spacer"></span>
     <span *ngIf="isUserLoggedIn">
