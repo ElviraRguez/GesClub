@@ -56,11 +56,18 @@ export class JugadorCreateComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
-    console.log(form.value);
     form.value.edad = this.api.calcularEdad(form.value.fechaNacimiento);
     if (form.value.observaciones == null) {
       form.value.observaciones = 'Nada';
     }
+
+    form.value.contacto = {
+      email: form.value.email,
+      telefono: form.value.telefono,
+      direccion: form.value.direccion
+    };
+
+    console.log(form.value);
 
     this.api.postMiembro(form.value)
       .subscribe(res => {

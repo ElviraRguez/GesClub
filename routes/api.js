@@ -65,6 +65,7 @@ router.post('/miembro/club', function(req, res, next) {
 
 router.put('/miembro/:id', function(req, res, next) {
   Miembro.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+    console.log('ey');
     if (err) return next(err);
     res.json(post);
   });

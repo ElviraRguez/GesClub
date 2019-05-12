@@ -1,25 +1,38 @@
 .container {
   padding: 3%;
+  background: linear-gradient(to right, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
 }
 
 .content {
   margin-top: 20px;
+  padding: 1px 1%;
 }
 
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
+.form {
+width: 100%;
+background: white;
+border-radius: 5px;
+background-color: rgba(242, 242, 242, 0.6);
+}
+
+.row {
+display: flex;
+}
+
+.col-6 {
+width: 50%;
+margin-right: 2%;
+}
+
+.full-width {
   width: 100%;
 }
 
-.example-full-width {
-  width: 100%;
-}
-
-.example-full-width:nth-last-child() {
+/*
+.full-width:nth-last-child() {
   margin-bottom: 10px;
 }
-
+*/
 .button-row {
   margin: 10px 0;
 }
