@@ -1,21 +1,10 @@
-<!doctype html>
-<html ng-app="app">
+<app-header [isUserLoggedIn]="true"></app-header>
+<div class="container">
+  <a mat-raised-button color="primary" [routerLink]="['/partidos']">
+    <mat-icon aria-label="Icon add player">add</mat-icon>
+  </a>
 
-<head>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-</head>
-
-
-<body>
-<a mat-raised-button color="primary" [routerLink]="['/partidos']"></a>
-
-<div>
-  <button ng-click="exportar()" disabled>Exportar PDF</button>
-</div>
-
-<div class="content" id="exportthis">
+<div class="content">
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
    <!-- Fecha -->
@@ -52,7 +41,3 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 </div>
-
-</body>
-
-</html>
