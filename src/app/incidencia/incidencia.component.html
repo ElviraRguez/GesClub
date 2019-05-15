@@ -1,3 +1,4 @@
+<app-header [isUserLoggedIn]="true"></app-header>
 <div class="container">
     <a mat-raised-button color="primary" [routerLink]="['/incidencia-create']">
       <mat-icon aria-label="Icon add player">add</mat-icon>
@@ -12,12 +13,12 @@
   
         <ng-container matColumnDef="fechaInicio">
           <mat-header-cell *matHeaderCellDef> Fecha Inicio </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.fechaInicio}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.fechaInicio | date:"MM/dd/yy"}} </mat-cell>
         </ng-container>
   
         <ng-container matColumnDef="fechaFin">
           <mat-header-cell *matHeaderCellDef> Fecha Fin </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.fechaFin}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.fechaFin | date:"MM/dd/yy"}} </mat-cell>
         </ng-container>
   
         <ng-container matColumnDef="miembro">

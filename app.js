@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/gesclub',  { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/GesClub',  { useNewUrlParser: true })
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
 

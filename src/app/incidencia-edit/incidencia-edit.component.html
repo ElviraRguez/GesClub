@@ -1,27 +1,30 @@
+<app-header [isUserLoggedIn]="true"></app-header>
 <div class="container">
     <a mat-raised-button color="primary" [routerLink]="['/incidencias']">
       <mat-icon>arrow_back</mat-icon>
     </a>
     <div class="content">
-      <form [formGroup]="incidenciaForm" (ngSubmit)="onFormSubmit(incidenciaForm.value)">
-          <mat-form-field class="example-full-width">
+      <form class="form" [formGroup]="incidenciaForm" (ngSubmit)="onFormSubmit(incidenciaForm.value)">
+        <div class="row">
+          <div class="col-6">
+          <mat-form-field class="full-width">
               <input matInput placeholder="Asunto" formControlName="asunto" [errorStateMatcher]="matcher">
           </mat-form-field>
 
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="full-width">
               <mat-label>Fecha de Inicio</mat-label>
               <input matInput [matDatepicker]="picker" formControlName="fechaInicio">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="full-width">
               <mat-label>Fecha Fin</mat-label>
               <input matInput [matDatepicker]="picker2" formControlName="fechaFin">
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field class="full-width">
             <mat-label>Detalle</mat-label>
             <textarea matInput placeholder="Detalle" formControlName="detalle"></textarea>
           </mat-form-field>
@@ -30,6 +33,8 @@
                 <mat-icon>save</mat-icon>
               </button>
           </div>
+        </div>
+      </div>
       
       </form>
 
